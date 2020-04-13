@@ -4,6 +4,10 @@ from sqlalchemy import create_engine
 import re
 import numpy as np
 import pandas as pd
+
+import nltk
+nltk.download('stopwords')
+
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
@@ -16,6 +20,9 @@ from sklearn.multioutput import MultiOutputClassifier
 
 from sklearn.metrics import classification_report
 import pickle
+
+
+
 
 
 def load_data(database_filepath):
@@ -95,8 +102,7 @@ def build_model():
                         ('clf', MultiOutputClassifier(RandomForestClassifier()))
                         ])
     
-    parameters = {'clf__estimator__n_estimators':[50, 100],
-                  'clf__estimator__criterion': ['gini','entropy']
+    parameters = {'clf__estimator__n_estimators':[50, 100]
                  }
     model = GridSearchCV(pipeline, parameters) #, n_jobs=4
     
