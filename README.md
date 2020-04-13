@@ -1,5 +1,4 @@
 # Disaster Response Pipeline Project
-Analysis of Covid-19 datasets
 
 ### Table of Contents
 
@@ -44,7 +43,16 @@ The files are split into three folders
 
 ## Results<a name="results"></a>
 
-The main findings of the code can be found at the post available [here](https://medium.com/@kai.sandmann/analysing-influences-on-covid-19-spread-in-major-countries-f74cd7a0f309).
+In the diagram below, the validation result of the model is visualized. Here the recall is used as criteria, to see if how many relevant items are correctly classified.
+Identifying if a message is relevant in general, can be identified with a high accuracy. To further identify specific needs, is only possible for a minor group of classes. This is mainly due to the fact, that some classes occure very rarely in the dataset.
+
+**_Validation result (RandomForestClassifier)_**
+![results](img/TrainingResult.png)
+
+A test with a deep learning model (here: Recurrent Convolutional Neural Network), showed, that the recall could be improved for some classes, but decreased for others (mainly for those that rarely occur in the training data). 
+
+**_Validation result (Recurrent Convolutional Neural Network)_**
+![results](img/TrainingResult_rcnn.png)
 
 ## Web Application<a name="webapp"></a>
 
@@ -53,15 +61,18 @@ The app, stored in folder "app" can be installed and launched via flask.
 On the start page of the app, a short overview of the training dataset is given.
 Also a textbox for entering a new text message is displayed.
 
-**_Screenshot 1_**
-![results](img/WebApp1.png)
+**_Screenshot WebApp 1_**
+![webapp](img/WebApp1.png)
 
 After classifying a text message the result for all classes is displayed.
 
-**_Screenshot 2_**
-![results](img/WebApp2.png)
+**_Screenshot WebApp 2_**
+![webapp](img/WebApp2.png)
 
 ## Licensing, Authors, Acknowledgements<a name="licensing"></a>
 
-* [Udacity](https://www.udacity.com/) for providing such a complete Data Science Nanodegree Program
-* [Figure Eight](https://www.figure-eight.com/) for providing messages dataset to train my model
+Licensed under MIT.
+
+Acknowledgements to:
+* [Udacity](https://www.udacity.com/) for providing the Data Science Nanodegree Program
+* [Figure Eight](https://www.figure-eight.com/) for providing messages dataset
