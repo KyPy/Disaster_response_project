@@ -96,7 +96,7 @@ def save_data(df, database_filename):
     """ Stores pandas Dataframe into sqlite database """
     
     engine = create_engine('sqlite:///' + database_filename)
-    df.to_sql('f8_disater_response_data', engine, if_exists='replace')
+    df.to_sql('f8_disater_response_data', engine, if_exists='replace', index=False)
     
 
 
